@@ -1,0 +1,55 @@
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <div class="form-group">
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="employeeService.seletedEmployee.name" placeholder="Name">
+  </div>
+
+  <div class="form-group">
+    <label for="">Position</label>
+    <input type="text" class="form-control" name="position" #position="ngModel" [(ngModel)]="employeeService.seletedEmployee.position" placeholder="Position">
+  </div>
+
+  <div class="form-group">
+    <label for="">Office</label>
+    <input type="text" class="form-control" name="office" #office="ngModel" [(ngModel)]="employeeService.seletedEmployee.office" placeholder="Office">
+  </div>
+
+  <div class="form-group">
+    <label for="">Salary</label>
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class="fa fa-dollar"></i>
+      </div>
+      <input type="text" class="form-control" name="salary" #salary="ngModel" [(ngModel)]="employeeService.seletedEmployee.salary" placeholder="Salary">
+    </div>
+    
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default" type="submit">
+      <i class="fa fa-floppy-o"></i>
+      Save</button>
+    <button class="btn btn-default" (click)="resetForm(employeeForm)" type="button">
+      <i class="fa fa-repeat"></i>
+      Reset</button>
+  </div>
+</form>
+
+<div class="card">
+  <div class="card-header">
+    File Upload
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      Select a file for upload:
+    </h5>
+    <input type="file" (change)="upload($event)" accept=".png,.jpg">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <div class="alert alert-info" role="alert" *ngIf="downloadURL!= ''">
+      File uploaded: <a [href]="downloadURL">{{downloadURL}}</a>
+    </div>
+  </div>
+</div>

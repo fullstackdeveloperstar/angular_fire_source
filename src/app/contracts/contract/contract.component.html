@@ -1,0 +1,26 @@
+<p><span class="title">UID:</span> {{contract['uid']}}</p>
+<p><span class="title">Address:</span> {{contract['address']}}</p>
+<p><span class="title">AgentId:</span> {{contract['agentId']}}</p>
+<p><span class="title">agentName:</span> {{contract['agentName']}}</p>
+<p><span class="title">budget:</span> {{contract['budget']}}</p>
+<p><span class="title">description:</span> {{contract['description']}}</p>
+<p><span class="title">endDate:</span> {{contract['endDate']}}</p>
+<p><span class="title">escrow:</span> {{contract['escrow']}}</p>
+<p><span class="title">orderDate:</span> {{contract['orderDate']}}</p>
+<p><span class="title">photoAccount:</span> {{contract['photoAccount']}}</p>
+<p><span class="title">photographerId:</span> {{contract['photographerId']}}</p>
+<p><span class="title">photographerName:</span> {{contract['photographerName']}}</p>
+<p><span class="title">status:</span> {{contract['status']}}</p>
+<p><span class="title">title:</span> {{contract['title']}}</p>
+
+<div class="form-group"></div>
+<input type="text" [(ngModel)]="file_name" class="form-control" placeholder="File Name">
+<input type="file" (change)="uploads($event)" accept=".png,.jpg" multiple class="form-control">
+<div class="progress" *ngFor="let progress of progresses">
+  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(progress | async) + '%'"
+    [attr.aria-valuenow]="(progress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+<div class="alert alert-info" role="alert" *ngIf="cur_file_counts == cur_uploaded_files">
+  Files are uploaded
+</div>

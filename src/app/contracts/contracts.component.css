@@ -1,0 +1,19 @@
+.contract{
+    padding: 10px;
+    border: solid 1px #888;
+    margin: 5px 5px 20px;
+    box-shadow: 4px 4px 6px 0px #abaaaa;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contract:hover{
+    background: #888;
+    color: white;
+}
+
+
+.contract .title{
+    font-size: 15px;
+    font-weight: 600;
+}
